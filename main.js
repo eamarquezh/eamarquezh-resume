@@ -40,6 +40,10 @@ const iGithub = i();
 iGithub.className='bi bi-github sobre';
 iGithub.addEventListener('click',()=>{window.open('https://github.com/eamarquezh/', '_blank')})
 
+const iDescargaCV = i();
+iDescargaCV.className='bi bi-arrow-down-square-fill sobre';
+iDescargaCV.addEventListener('click',()=>{window.open('./CV-Eric-Marquez.pdf', '_blank')})
+
 
 const contenedor = div();
 contenedor.className='contenedor';
@@ -118,6 +122,8 @@ aC(capTwo,pTwo);
 aC(capThree,iThree);
 aC(capThree,pThree);
 
+aC(lienzo,iDescargaCV);
+aC(lienzo,br());
 aC(lienzo,pie);
 
 
