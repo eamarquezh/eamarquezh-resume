@@ -97,13 +97,18 @@ pThree.innerHTML= `<h2>Skills</h4>
         <i class="bi bi-git" style='color:#e74c3c;'></i>
         <i class="bi bi-database-fill" style='color:#2980b9;'></i>
         <i class="bi bi-filetype-html" style='color:#e74c3c;'></i>
-        <i class="bi bi-filetype-css" style='color:#9b59b6;'></i>
+        <i class="bi bi-filetype-css" style='color:#3498db;'></i>
         <i class="bi bi-filetype-js" style='color:#f1c40f;'></i>
         <i class="bi bi-filetype-php" style='color:#8e44ad;'></i>
         <i class="bi bi-filetype-py" style='color:#27ae60;'></i>
-        <i class="bi bi-filetype-java" style='color:#d35400;'></i>
-        <i class="bi bi-filetype-sql" style='color:#f1c40f;'></i>
-    </p>`;
+    </p>
+    <p><i class="bi bi-file-earmark"></i>Office automation.</p>
+    <p>
+    <i class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
+    <i class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
+    <i class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
+</p>
+    `;
 
 const pie = footer();
 pie.textContent='power by @eamarquezh';
