@@ -17,6 +17,8 @@
 i{
   padding: 5px;
   font-size: 1.5em;
+  display: inline-block;
+  transition: transform 0.5s ease, color 0.2s ease; /* Transiciones para transform y color */
 }
 
 i.tam{
@@ -26,6 +28,7 @@ i.tam{
 
 i.sobre:hover {
   color: #646cff;
+  transform: rotate(45deg);
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
