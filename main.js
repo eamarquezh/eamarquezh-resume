@@ -26,7 +26,6 @@ function aC(a,b){return a.appendChild(b);}
 
 
 const iEnglis = i();
-iEnglis.tabIndex="0";
 iEnglis.className='bi bi-translate sobre';
 
 const iLanguage = button();
@@ -301,9 +300,9 @@ async function languageSpanish(){
         </p>
         <p tabindex='0'><i class="bi bi-file-earmark"></i>Ofimática.</p>
         <p>
-        <i tabindex='0' aria-label='spreadsheet' class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
-        <i tabindex='0' aria-label='presentation' class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
-        <i tabindex='0' aria-label='documents' class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
+        <i tabindex='0' aria-label='Hoja de calculo' class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
+        <i tabindex='0' aria-label='Presentaciones' class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
+        <i tabindex='0' aria-label='Procesador de textos' class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
     </p>`;
 
 }
