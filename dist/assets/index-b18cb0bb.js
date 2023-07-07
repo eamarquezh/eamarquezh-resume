@@ -1,120 +1,9 @@
-import '/style.css'
-
-
-const lienzo = document.getElementById('app');
-
-function br(){return document.createElement('br');}
-function a(){return document.createElement('a');}
-function i(){return document.createElement('i');}
-function h1(){return document.createElement('h1');}
-function h2(){return document.createElement('h2');}
-function div(){return document.createElement('div');}
-function input(){return document.createElement('input');}
-function button(){return document.createElement('button');}
-function img(){return document.createElement('img');}
-function label(){return document.createElement('label');}
-function table(){return document.createElement('table');}
-function tr(){return document.createElement('tr');}
-function th(){return document.createElement('th');}
-function tbody(){return document.createElement('tbody');}
-function td(){return document.createElement('td');}
-function form(){return document.createElement('form');}
-function p(){return document.createElement('p');}
-function footer(){return document.createElement('footer');}
-function aC(a,b){return a.appendChild(b);}
-
-
-
-const iEnglis = i();
-iEnglis.tabIndex="0";
-iEnglis.className='bi bi-translate sobre';
-
-const iLanguage = button();
-iLanguage.tabIndex='0';
-iLanguage.className='derecha';
-iEnglis.ariaLabel="Eapañol";
-let idioma= 'es';
-iLanguage.textContent=idioma;
-iLanguage.addEventListener('click',()=>{toogleLanguage(idioma)});
-aC(iLanguage,iEnglis);
-
-const skip = a();
-skip.tabIndex='0';
-skip.href='#Eric'; 
-skip.className='skip-link';
-skip.textContent='Skip to main content';
-skip.ariaLabel="you can to go by main content or you can change the language hwen pressing tab";
-
-const foto = img();
-foto.src='https://avatars.githubusercontent.com/u/10810956?v=4';
-foto.tabIndex="0";
-foto.alt='Profile photo';
-//foto.src='https://www.gravatar.com/avatar/bfcb1d6a22d7098499771d3bcec5a8c4?d=robohash&f=y&s=128';
-foto.className='logo vanilla';
-
-const nombre = h1();
-nombre.id='Eric';
-nombre.tabIndex="0";
-nombre.ariaLabel="Hi I'm Eric Marquez this is a simply resume but if you use the option accesibility I hope you have the best user experience";
-nombre.textContent="Hi I'm Eric Marquez";
-
-const iLinkedin = i();
-iLinkedin.tabIndex="0";
-iLinkedin.ariaLabel="go to my linkedin profile";
-iLinkedin.className='bi bi-linkedin sobre';
-iLinkedin.addEventListener('keydown',(e)=>{(e.key === "Enter")?window.open('https://www.linkedin.com/in/eamarquezh/', '_blank'):''});
-iLinkedin.addEventListener('click',()=>{window.open('https://www.linkedin.com/in/eamarquezh/', '_blank')});
-
-const iGithub = i();
-iGithub.tabIndex="0";
-iGithub.ariaLabel="go to my github profile";
-iGithub.className='bi bi-github sobre';
-iGithub.addEventListener('keydown',(e)=>{(e.key === "Enter")?window.open('https://github.com/eamarquezh/', '_blank'):''});
-iGithub.addEventListener('click',()=>{window.open('https://github.com/eamarquezh/', '_blank')});
-
-const invitacion = button();
-invitacion.tabIndex='0';
-invitacion.textContent='Download this resume';
-
-const iDescargaCV = i();
-iDescargaCV.className='bi bi-arrow-down-square-fill sobre';
-let dircv='./CV-Eric-Marquez(en).pdf';
-invitacion.addEventListener('click',()=>{window.open(dircv, '_blank')});
-aC(invitacion,iDescargaCV);
-
-const contenedor = div();
-contenedor.className='contenedor';
-const capOne = div();
-capOne.className='item';
-const capTwo = div();
-capTwo.className='item';
-const capThree = div();
-capThree.className='item';
-
-const iOne = i();
-iOne.tabIndex='0';
-iOne.ariaLabel='here is my carrer path';
-iOne.className='bi bi-person-vcard-fill tam';
-const iTwo = i();
-iTwo.tabIndex='0';
-iTwo.ariaLabel='here is my educational History';
-iTwo.className='bi bi-mortarboard-fill tam';
-const iThree = i();
-iThree.tabIndex='0';
-iThree.ariaLabel='here is my skills';
-iThree.className='bi bi-lightning-charge-fill tam';
-
-
-const pOne =p();
-pOne.innerHTML= `<h2 tabindex='0'>Career path</h2>
+(function(){const y=document.createElement("link").relList;if(y&&y.supports&&y.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))M(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const A of i.addedNodes)A.tagName==="LINK"&&A.rel==="modulepreload"&&M(A)}).observe(document,{childList:!0,subtree:!0});function D(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function M(a){if(a.ep)return;a.ep=!0;const i=D(a);fetch(a.href,i)}})();const n=document.getElementById("app");function q(){return document.createElement("br")}function z(){return document.createElement("a")}function p(){return document.createElement("i")}function j(){return document.createElement("h1")}function C(){return document.createElement("div")}function N(){return document.createElement("button")}function O(){return document.createElement("img")}function L(){return document.createElement("p")}function Q(){return document.createElement("footer")}function e(r,y){return r.appendChild(y)}const s=p();s.tabIndex="0";s.className="bi bi-translate sobre";const t=N();t.tabIndex="0";t.className="derecha";s.ariaLabel="Eapañol";let m="es";t.textContent=m;t.addEventListener("click",()=>{U(m)});e(t,s);const o=z();o.tabIndex="0";o.href="#Eric";o.className="skip-link";o.textContent="Skip to main content";o.ariaLabel="you can to go by main content or you can change the language hwen pressing tab";const u=O();u.src="https://avatars.githubusercontent.com/u/10810956?v=4";u.tabIndex="0";u.alt="Profile photo";u.className="logo vanilla";const l=j();l.id="Eric";l.tabIndex="0";l.ariaLabel="Hi I'm Eric Marquez this is a simply resume but if you use the option accesibility I hope you have the best user experience";l.textContent="Hi I'm Eric Marquez";const d=p();d.tabIndex="0";d.ariaLabel="go to my linkedin profile";d.className="bi bi-linkedin sobre";d.addEventListener("keydown",r=>{r.key==="Enter"&&window.open("https://www.linkedin.com/in/eamarquezh/","_blank")});d.addEventListener("click",()=>{window.open("https://www.linkedin.com/in/eamarquezh/","_blank")});const b=p();b.tabIndex="0";b.ariaLabel="go to my github profile";b.className="bi bi-github sobre";b.addEventListener("keydown",r=>{r.key==="Enter"&&window.open("https://github.com/eamarquezh/","_blank")});b.addEventListener("click",()=>{window.open("https://github.com/eamarquezh/","_blank")});const c=N();c.tabIndex="0";c.textContent="Download this resume";const E=p();E.className="bi bi-arrow-down-square-fill sobre";let P="./CV-Eric-Marquez(en).pdf";c.addEventListener("click",()=>{window.open(P,"_blank")});e(c,E);const x=C();x.className="contenedor";const w=C();w.className="item";const v=C();v.className="item";const S=C();S.className="item";const h=p();h.tabIndex="0";h.ariaLabel="here is my carrer path";h.className="bi bi-person-vcard-fill tam";const g=p();g.tabIndex="0";g.ariaLabel="here is my educational History";g.className="bi bi-mortarboard-fill tam";const f=p();f.tabIndex="0";f.ariaLabel="here is my skills";f.className="bi bi-lightning-charge-fill tam";const k=L();k.innerHTML=`<h2 tabindex='0'>Career path</h2>
     <h3 tabindex='0'>Atento Servicios • 2009 until now</h3>
     <p tabindex='0'><strong>(Today) </strong>Soporte a desarrollo: Software Testing and Quality Assurance Lead.</p>
     <p tabindex='0'><strong>(Until 2016) </strong>Asignación y estrategias: Data Strategy Leader.</p>
     <p tabindex='0'><strong>(Until 2013) </strong>Medios alternos: Data analyst.</p>
-    <p tabindex='0'><strong>(Until 2011) </strong>I started how telephone operator and headset maintenance and management.</p>`;
-
-const pTwo =p();
-pTwo.innerHTML= `<h2 tabindex='0'>Educational history</h2>
+    <p tabindex='0'><strong>(Until 2011) </strong>I started how telephone operator and headset maintenance and management.</p>`;const I=L();I.innerHTML=`<h2 tabindex='0'>Educational history</h2>
     <h3 tabindex='0'>University UNIDEH</h3>
     <p tabindex='0'>I'm currently in the process of graduation in Software Engineering.</p>
     <p tabindex='0'><strong>High school CECyTEH • 2006 - 2009</strong> Computer technician.</p>
@@ -125,10 +14,7 @@ pTwo.innerHTML= `<h2 tabindex='0'>Educational history</h2>
     Scrum, GCP essentials, Programador (Orientado a objetos
     python), Como dirigir el servicio de atención a clientes,
     programador con Java para aplicaciones Android, control
-    de versiones,...</p>`;
-
-const pThree =p();
-pThree.innerHTML= `<h2 tabindex='0'>Skills</h4>
+    de versiones,...</p>`;const H=L();H.innerHTML=`<h2 tabindex='0'>Skills</h4>
     <p tabindex='0'><i class="bi bi-bug"></i>QA Software.</p>
     <p tabindex='0'><i class="bi bi-database"></i>Data Science.</p>
     <p tabindex='0'><i class="bi bi-code-slash"></i>Software Developer.</p>
@@ -146,80 +32,12 @@ pThree.innerHTML= `<h2 tabindex='0'>Skills</h4>
     <i tabindex='0' aria-label='spreadsheet' class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
     <i tabindex='0' aria-label='presentation' class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
     <i tabindex='0' aria-label='documents' class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
-</p>`;
-
-const pie = footer();
-pie.tabIndex='0';
-pie.textContent='power by @eamarquezh';
-
-aC(lienzo,skip);
-aC(lienzo,iLanguage);
-aC(lienzo,nombre);
-aC(lienzo,foto);
-aC(lienzo,br());
-aC(lienzo,iLinkedin);
-aC(lienzo,iGithub);
-aC(lienzo,contenedor);
-aC(contenedor,capOne);
-aC(contenedor,capTwo);
-aC(contenedor,capThree);
-
-aC(capOne,iOne);
-aC(capOne,pOne);
-aC(capTwo,iTwo);
-aC(capTwo,pTwo);
-aC(capThree,iThree);
-aC(capThree,pThree);
-
-aC(lienzo,invitacion);
-aC(lienzo,p());
-aC(lienzo,pie);
-
-
-
-function toogleLanguage(idiom){
-    if(idiom=='en'){
-        console.log('english');
-        idioma= 'es';
-        iLanguage.textContent=idioma;
-        aC(iLanguage,iEnglis);
-        languageEnglish();
-    }
-    if(idiom=='es'){
-        console.log('espanish');
-        idioma= 'en';
-        iLanguage.textContent=idioma;
-        aC(iLanguage,iEnglis);
-        languageSpanish();
-    }
-}
-
-//languages
-
-
-async function languageEnglish(){
-    iEnglis.ariaLabel="Español";
-    aC(iLanguage,iEnglis);
-    skip.textContent='Skip to main content';
-    skip.ariaLabel="for english press Enter o tabulador para elegir el idioma entre español o ingles";
-    foto.alt='Profile photo';
-    nombre.ariaLabel="Hi I'm Eric Marquez this is a simply resume but if you use the option accesibility I hope you have the best user experience";
-    nombre.textContent="Hi I'm Eric Marquez";
-    iLinkedin.ariaLabel="go to my linkedin profile";
-    iGithub.ariaLabel="go to my github profile";
-    invitacion.textContent='Download this resume';
-    dircv='./CV-Eric-Marquez(en).pdf';
-    aC(invitacion,iDescargaCV);
-    iOne.ariaLabel='here is my carrer path';
-    iTwo.ariaLabel='here is my educational History';
-    iThree.ariaLabel='here is my skills';
-    pOne.innerHTML= `<h2 tabindex='0'>Career path</h2>
+</p>`;const T=Q();T.tabIndex="0";T.textContent="power by @eamarquezh";e(n,o);e(n,t);e(n,l);e(n,u);e(n,q());e(n,d);e(n,b);e(n,x);e(x,w);e(x,v);e(x,S);e(w,h);e(w,k);e(v,g);e(v,I);e(S,f);e(S,H);e(n,c);e(n,L());e(n,T);function U(r){r=="en"&&(console.log("english"),m="es",t.textContent=m,e(t,s),B()),r=="es"&&(console.log("espanish"),m="en",t.textContent=m,e(t,s),F())}async function B(){s.ariaLabel="Español",e(t,s),o.textContent="Skip to main content",o.ariaLabel="for english press Enter o tabulador para elegir el idioma entre español o ingles",u.alt="Profile photo",l.ariaLabel="Hi I'm Eric Marquez this is a simply resume but if you use the option accesibility I hope you have the best user experience",l.textContent="Hi I'm Eric Marquez",d.ariaLabel="go to my linkedin profile",b.ariaLabel="go to my github profile",c.textContent="Download this resume",P="./CV-Eric-Marquez(en).pdf",e(c,E),h.ariaLabel="here is my carrer path",g.ariaLabel="here is my educational History",f.ariaLabel="here is my skills",k.innerHTML=`<h2 tabindex='0'>Career path</h2>
         <h3 tabindex='0'>Atento Servicios • 2009 until now</h3>
         <p tabindex='0'><strong>(Today) </strong>Soporte a desarrollo: Software Testing and Quality Assurance Lead.</p>
         <p tabindex='0'><strong>(Until 2016) </strong>Asignación y estrategias: Data Strategy Leader.</p>
         <p tabindex='0'><strong>(Until 2013) </strong>Medios alternos: Data analyst.</p>
-        <p tabindex='0'><strong>(Until 2011) </strong>I started how telephone operator and headset maintenance and management.</p>`;
-    pTwo.innerHTML= `<h2 tabindex='0'>Educational history</h2>
+        <p tabindex='0'><strong>(Until 2011) </strong>I started how telephone operator and headset maintenance and management.</p>`,I.innerHTML=`<h2 tabindex='0'>Educational history</h2>
         <h3 tabindex='0'>University UNIDEH</h3>
         <p tabindex='0'>I'm currently in the process of graduation in Software Engineering.</p>
         <p tabindex='0'><strong>High school CECyTEH • 2006 - 2009</strong> Computer technician.</p>
@@ -230,8 +48,7 @@ async function languageEnglish(){
         Scrum, GCP essentials, Programador (Orientado a objetos
         python), Como dirigir el servicio de atención a clientes,
         programador con Java para aplicaciones Android, control
-        de versiones,...</p>`;
-    pThree.innerHTML= `<h2 tabindex='0'>Skills</h4>
+        de versiones,...</p>`,H.innerHTML=`<h2 tabindex='0'>Skills</h4>
         <p tabindex='0'><i class="bi bi-bug"></i>QA Software.</p>
         <p tabindex='0'><i class="bi bi-database"></i>Data Science.</p>
         <p tabindex='0'><i class="bi bi-code-slash"></i>Software Developer.</p>
@@ -249,32 +66,12 @@ async function languageEnglish(){
         <i tabindex='0' aria-label='spreadsheet' class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
         <i tabindex='0' aria-label='presentation' class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
         <i tabindex='0' aria-label='documents' class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
-        </p>`;
-        
-}
-
-async function languageSpanish(){
-    iEnglis.ariaLabel="English";
-    skip.textContent='Ir a contenido principal';
-    skip.ariaLabel="for english press Enter o tabulador para elegir el idioma entre español o ingles";
-    foto.alt='Foto de perfil';
-    nombre.ariaLabel="Hola soy Eric Marquez esta es una simple hoja de vida pero puedes elegir las opciones de accesibilidad, espero tengas la mejor experiencia de usuario";
-    nombre.textContent="Hola soy Eric Marquez";
-    iLinkedin.ariaLabel="ir a mi perfil de linkedin";
-    iGithub.ariaLabel="ir a mi perfil de github";
-    invitacion.textContent='Descargar hoja de vida';
-    dircv='./CV-Eric-Marquez(es).pdf';
-    aC(invitacion,iDescargaCV);
-    iOne.ariaLabel='mi camino laboral';
-    iTwo.ariaLabel='mis estudios';
-    iThree.ariaLabel='estas son mis habilidades';
-    pOne.innerHTML= `<h2 tabindex='0'>Camino laboral</h2>
+        </p>`}async function F(){s.ariaLabel="English",o.textContent="Ir a contenido principal",o.ariaLabel="for english press Enter o tabulador para elegir el idioma entre español o ingles",u.alt="Foto de perfil",l.ariaLabel="Hola soy Eric Marquez esta es una simple hoja de vida pero puedes elegir las opciones de accesibilidad, espero tengas la mejor experiencia de usuario",l.textContent="Hola soy Eric Marquez",d.ariaLabel="ir a mi perfil de linkedin",b.ariaLabel="ir a mi perfil de github",c.textContent="Descargar hoja de vida",P="./CV-Eric-Marquez(es).pdf",e(c,E),h.ariaLabel="mi camino laboral",g.ariaLabel="mis estudios",f.ariaLabel="estas son mis habilidades",k.innerHTML=`<h2 tabindex='0'>Camino laboral</h2>
         <h3 tabindex='0'>Atento Servicios • 2009 hasta hoy</h3>
         <p tabindex='0'><strong>(Hoy) </strong>Soporte a desarrollo: Software Testing and Quality Assurance Lead.</p>
         <p tabindex='0'><strong>(Hasta 2016) </strong>Asignación y estrategias: Data Strategy Leader.</p>
         <p tabindex='0'><strong>(Hasta 2013) </strong>Medios alternos: Data analyst.</p>
-        <p tabindex='0'><strong>(Hasta 2011) </strong>Inicie como teleoperador y en el área de gestión y mantenimiento de diademas..</p>`;
-    pTwo.innerHTML= `<h2 tabindex='0'>Historia Educacional</h2>
+        <p tabindex='0'><strong>(Hasta 2011) </strong>Inicie como teleoperador y en el área de gestión y mantenimiento de diademas..</p>`,I.innerHTML=`<h2 tabindex='0'>Historia Educacional</h2>
         <h3 tabindex='0'>Universidad UNIDEH</h3>
         <p tabindex='0'>Actualmente estoy en proceso de titulación en ingeniería de software.</p>
         <p tabindex='0'><strong>Bachillerato CECyTEH • 2006 - 2009</strong> Técnico en informática.</p>
@@ -285,8 +82,7 @@ async function languageSpanish(){
         Scrum, GCP essentials, Programador (Orientado a objetos
         python), Como dirigir el servicio de atención a clientes,
         programador con Java para aplicaciones Android, control
-        de versiones,...</p>`;
-    pThree.innerHTML= `<h2 tabindex='0'>Habilidades</h4>
+        de versiones,...</p>`,H.innerHTML=`<h2 tabindex='0'>Habilidades</h4>
         <p tabindex='0'><i class="bi bi-bug"></i>QA Software.</p>
         <p tabindex='0'><i class="bi bi-database"></i>Data Science.</p>
         <p tabindex='0'><i class="bi bi-code-slash"></i>Software Developer.</p>
@@ -304,6 +100,4 @@ async function languageSpanish(){
         <i tabindex='0' aria-label='spreadsheet' class="bi bi-file-earmark-excel-fill" style='color:#27ae60;'></i>
         <i tabindex='0' aria-label='presentation' class="bi bi-file-earmark-ppt-fill" style='color:#d35400;'></i>
         <i tabindex='0' aria-label='documents' class="bi bi-file-earmark-word-fill" style='color:#2980b9;'></i>
-    </p>`;
-
-}
+    </p>`}
