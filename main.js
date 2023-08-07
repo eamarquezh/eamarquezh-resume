@@ -118,7 +118,7 @@ pTwo.innerHTML= `<h2 tabindex='0'>Educational history</h2>
     <p tabindex='0'>I'm currently in the process of graduation in Software Engineering.</p>
     <p tabindex='0'><strong>High school CECyTEH • 2006 - 2009</strong> Computer technician.</p>
     <p tabindex='0'><strong>Recent courses:</strong>
-    Curso de Prompt Engineering con ChatGPT, Curso de Auditoría de Accesibilidad Web, Curso de Introducción a la Automatización de Pruebas, Curso Básico de JavaScript, Curso Básico de Python, Curso de Análisis de Negocios para Ciencia de Datos, Curso de SQL y MySQL, Fundamentos de pruebas de software, Scrum foundation
+    Python for Data Science, Curso de Prompt Engineering con ChatGPT, Curso de Auditoría de Accesibilidad Web, Curso de Introducción a la Automatización de Pruebas, Curso Básico de JavaScript, Curso Básico de Python, Curso de Análisis de Negocios para Ciencia de Datos, Curso de SQL y MySQL, Fundamentos de pruebas de software, Scrum foundation
     profesional certificate(SFPC), Lenguaje no verbal para
     lideres, fundamentos de la gestión del tiempo, Curso
     Scrum, GCP essentials, Programador (Orientado a objetos
