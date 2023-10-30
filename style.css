@@ -121,7 +121,7 @@ p{
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #dfe6e9);
+  filter: drop-shadow(0 0 .5em #dfe6e9);
 }
 
 .card {
