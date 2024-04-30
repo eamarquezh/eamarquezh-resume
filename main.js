@@ -4,10 +4,12 @@ import '/style.css'
 const lienzo = document.getElementById('app');
 
 function br(){return document.createElement('br');}
+function hr(){return document.createElement('hr');}
 function a(){return document.createElement('a');}
 function i(){return document.createElement('i');}
 function h1(){return document.createElement('h1');}
 function h2(){return document.createElement('h2');}
+function h3(){return document.createElement('h3');}
 function div(){return document.createElement('div');}
 function input(){return document.createElement('input');}
 function button(){return document.createElement('button');}
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("loader-container").style.display = "flex";
   setTimeout(function () {
       document.getElementById("loader-container").style.display = "none";
-  }, 500);
+  }, 100);
 });
 
 
@@ -97,6 +99,17 @@ iThree.tabIndex='0';
 iThree.ariaLabel='here is my skills';
 iThree.className='bi bi-lightning-charge-fill tam';
 
+const portfolioTitle = h3();
+portfolioTitle.textContent='Portfolio'
+
+const portfolioContainer = div();
+portfolioContainer.className='contenedor-port'
+
+const iPort = i();
+iPort.tabIndex='0';
+iPort.ariaLabel='here is my portfolio';
+iPort.className='bi bi-folder-fill tam'
+
 const pie = footer();
 pie.tabIndex='0';
 pie.textContent='power by @eamarquezh';
@@ -116,6 +129,11 @@ aC(capOne,iOne);
 aC(capTwo,iTwo);
 aC(capThree,iThree);
 
+
+aC(lienzo,hr());
+aC(lienzo,iPort);
+aC(lienzo,portfolioTitle)
+aC(lienzo,portfolioContainer);
 
 aC(lienzo,p());
 aC(lienzo,pie);
@@ -201,7 +219,6 @@ const  readCertificates = (cad)=>{
 }
 
 
-
 const  readSkill = (cad)=>{
     capThree.innerHTML = capThree.innerHTML + `<h2 tabindex="0">Skills<h2>`
     cad.map(a=>{
@@ -214,3 +231,54 @@ const  readSkill = (cad)=>{
     })
 }
 
+
+const gitApiRepo = async () => {
+  try {
+    const response = await fetch(`https://api.github.com/users/eamarquezh/repos`);
+    if (!response.ok) {
+      throw new Error('Error al obtener los repositorios');
+    }
+    const repositorios = await response.json();
+
+    // Filtrar repositorios que tienen al menos una estrella
+    const starredRepos = repositorios.filter(repo => repo.stargazers_count > 0);
+
+    // Mapear los datos de los repositorios filtrados
+    const reposArray = starredRepos.map(repo => ({
+      name: repo.name,
+      description: repo.description,
+      html_url: repo.html_url,
+      homepage: repo.homepage,
+      stargazers_count: repo.stargazers_count,
+    }));
+
+    return reposArray;
+  } catch (error) {
+    console.error(error.message);
+    return [];
+  }
+}
+
+gitApiRepo()
+  .then(reposArray => {
+    readRepos(reposArray);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+const  readRepos = (cad)=>{
+  cad.map(a=>{
+    if(a.stargazers_count>=1){
+    portfolioContainer.innerHTML = portfolioContainer.innerHTML +`
+      <div class="item-port" tabindex="0">
+          <small class="title"><strong>${a.name}</small><strong><br>
+          <a href="${a.html_url} target="_blank"><i class="bi bi-github"></i></a>
+          <a href="${a.homepage} target="_blank"><i class="bi bi-window"></i></a>
+
+      </div>
+    `
+    }
+  })
+}
