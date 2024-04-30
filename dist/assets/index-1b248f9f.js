@@ -20,8 +20,8 @@
         `})},F=async()=>{try{const e=await fetch("https://api.github.com/users/eamarquezh/repos");if(!e.ok)throw new Error("Error al obtener los repositorios");return(await e.json()).filter(n=>n.stargazers_count>0).map(n=>({name:n.name,description:n.description,html_url:n.html_url,homepage:n.homepage,stargazers_count:n.stargazers_count}))}catch(e){return console.error(e.message),[]}};F().then(e=>{B(e)}).catch(e=>{console.error(e)});const B=e=>{e.map(t=>{t.stargazers_count>=1&&(y.innerHTML=y.innerHTML+`
       <div class="item-port" tabindex="0">
           <small class="title"><strong>${t.name}</small><strong><br>
-          <a href="${t.html_url} target="_blank"><i class="bi bi-github"></i></a>
-          <a href="${t.homepage} target="_blank"><i class="bi bi-window"></i></a>
+          <a href="${t.html_url}" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="${t.homepage}" target="_blank"><i class="bi bi-window"></i></a>
 
       </div>
     `)})};

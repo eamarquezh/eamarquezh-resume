@@ -274,8 +274,8 @@ const  readRepos = (cad)=>{
     portfolioContainer.innerHTML = portfolioContainer.innerHTML +`
       <div class="item-port" tabindex="0">
           <small class="title"><strong>${a.name}</small><strong><br>
-          <a href="${a.html_url} target="_blank"><i class="bi bi-github"></i></a>
-          <a href="${a.homepage} target="_blank"><i class="bi bi-window"></i></a>
+          <a href="${a.html_url}" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="${a.homepage}" target="_blank"><i class="bi bi-window"></i></a>
 
       </div>
     `
