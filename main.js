@@ -1,4 +1,5 @@
 import '/style.css'
+import { jsPDF } from "jspdf"
 
 
 const lienzo = document.getElementById('app');
@@ -99,8 +100,11 @@ iThree.tabIndex='0';
 iThree.ariaLabel='here is my skills';
 iThree.className='bi bi-lightning-charge-fill tam';
 
+const downloadResumeBTN = button()
+downloadResumeBTN.textContent='Download resume'
+
 const portfolioTitle = h3();
-portfolioTitle.textContent='Portfolio'
+portfolioTitle.textContent='Projects'
 
 const portfolioContainer = div();
 portfolioContainer.className='contenedor-port'
@@ -128,6 +132,8 @@ aC(contenedor,capThree);
 aC(capOne,iOne);
 aC(capTwo,iTwo);
 aC(capThree,iThree);
+
+aC(lienzo,downloadResumeBTN)
 
 
 aC(lienzo,hr());
@@ -167,17 +173,19 @@ const datos = async () => {
   }
   
 
-
-datos()
-.then(data => {
-    readExperience(data[0].work);
-    readEducation(data[0].education);
-    readCertificates(data[0].certificates);
-    readSkill(data[0].skills);
-})
-.catch(error => {
-    console.error(error);
-});
+const startResume=()=>{
+  datos()
+  .then(data => {
+      readExperience(data[0].work);
+      readEducation(data[0].education);
+      readCertificates(data[0].certificates);
+      readSkill(data[0].skills);
+  })
+  .catch(error => {
+      console.error(error);
+  });
+}
+startResume()
 
 
 const  readExperience = (cad)=>{
@@ -185,7 +193,8 @@ const  readExperience = (cad)=>{
     cad.map(a=>{
         capOne.innerHTML = capOne.innerHTML +`
         <div class="card" tabindex="0">
-            <strong class="title">${a.name}</strong>(<small><strong>From </strong>${a.startDate} <strong>to</strong> ${a.endDate!=""?a.endDate:'Now'}</small>)<br>
+            <strong class="title">${a.name}</strong><br>
+            <small><strong>From </strong>${parseDate(a.startDate)} <strong>to</strong> ${parseDate(a.endDate)}</small><br>
             <small><strong>Position</small></strong>: ${a.position}<br>
             <strong><small>Responsibilities</small></strong>: ${a.summary}
         </div>
@@ -201,7 +210,7 @@ const  readEducation = (cad)=>{
         capTwo.innerHTML = capTwo.innerHTML +`
         <div class="card" tabindex="0">
             <small class="title"><strong>${a.institution}</small><strong><br>
-            <small><strong>From </strong>${a.startDate} <strong>to</strong> ${a.endDate!=""?a.endDate:'Now'}</small><br>
+            <small><strong>From </strong>${parseDate(a.startDate)} <strong>to</strong> ${parseDate(a.endDate)}</small><br>
             <strong><small>Area</small></strong>: ${a.area}
         </div>
         `
@@ -282,3 +291,148 @@ const  readRepos = (cad)=>{
     }
   })
 }
+
+const downloadResume=()=>{
+  datos()
+  .then(data => {
+      downloadResumen(data[0].work, data[0].education,data[0].certificates,data[0].skills)
+  })
+  .catch(error => {
+      console.error(error);
+  });
+}
+
+
+
+
+
+const downloadResumen=(work,education,certificates,skills)=>{
+const doc = new jsPDF();
+
+// Agregar foto (reemplaza 'ruta/a/imagen.jpg' con la URL de tu foto)
+const imgUrl = 'https://avatars.githubusercontent.com/u/10810956?v=4';
+doc.addImage(imgUrl, 'JPEG', 5, 5, 25, 25);
+
+
+// Agregar nombre
+doc.setFont('helvetica', 'bold'); // Establecer la fuente en negrita
+doc.setFontSize(16);
+doc.text('Eric Alfredo Marquez', 40, 10);
+doc.setFontSize(14);
+doc.text('Software Engineering', 40, 15);
+
+// Agregar información personal
+doc.setFont('helvetica','normal'); // Establecer la fuente en negrita
+doc.setFontSize(12);
+doc.text('Phone: 52 + 771-120-87-04', 40, 25);
+doc.text('E-mail: eamarquezh@gmail.com', 40, 30);
+doc.text('My website: eamarquezh.xyz', 120, 25);
+doc.text('Linkedin: eamarquezh', 120, 30);
+
+doc.setLineWidth(0.5);
+doc.line(5, 35, 205, 32);
+
+let position = 45
+
+// Agregar experiencia laboral
+doc.setFont('helvetica', 'bold'); 
+doc.setFontSize(14);
+doc.text('Carrer path', 5, position);
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+
+
+work.map((a)=>{
+    position +=10
+    doc.text(`${a.summary} in the role of "${a.position}" \n${a.name} from ${parseDate(a.startDate)} to ${parseDate(a.endDate)}`, 5, position)
+})
+
+position +=20
+doc.setFont('helvetica', 'bold'); 
+doc.setFontSize(14);
+doc.text('Educational history', 5, position);
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+
+education.map((a)=>{
+    position +=10
+    doc.text(`${a.area} \n${a.institution} from ${parseDate(a.startDate)} to ${parseDate(a.endDate)}`, 5, position)
+})
+
+
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+
+position +=15
+
+let cadenas=``
+
+certificates.map((a)=>{
+    cadenas+=`${a.name}(${parseDate(a.startDate)}), `
+  }
+)
+
+let recentCertificates=`Recent certificates:`
+let largeCounter=0
+let positionTemp =0
+for(let cadena of cadenas){
+  largeCounter+=cadena.length
+  if(largeCounter>50 && cadena==','){
+    recentCertificates+=`,\n`
+    largeCounter=0
+    positionTemp +=5
+  }else{
+    recentCertificates+=cadena
+  }
+}
+
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+doc.text('Recent certificates:', 5, position);
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+
+doc.text(recentCertificates.replace(/,$/, '.'),5,position)
+
+
+position+=positionTemp
+doc.setFont('helvetica', 'bold'); 
+doc.setFontSize(14);
+doc.text('Skills:', 5, position);
+doc.setFont('helvetica', 'normal'); 
+doc.setFontSize(10);
+
+skills.map((a)=>{
+  position +=5
+  doc.text(`${a.name}`,5,position)
+})
+
+// Guardar el documento PDF como archivo
+doc.save('resume_eamarquezh.pdf');
+}
+
+const parseDate=(myDate)=>{
+  let patron = /^\d{4}-\d{2}-\d{2}$/;
+  let mes=''
+  if(patron.test(myDate)){
+    if(myDate.substring(5,7)=='01') mes='January';
+    if(myDate.substring(5,7)=='02') mes='February';
+    if(myDate.substring(5,7)=='03') mes='March';
+    if(myDate.substring(5,7)=='04') mes='April';
+    if(myDate.substring(5,7)=='05') mes='May';
+    if(myDate.substring(5,7)=='06') mes='June';
+    if(myDate.substring(5,7)=='07') mes='July';
+    if(myDate.substring(5,7)=='08') mes='August';
+    if(myDate.substring(5,7)=='09') mes='September';
+    if(myDate.substring(5,7)=='10') mes='October';
+    if(myDate.substring(5,7)=='11') mes='November';
+    if(myDate.substring(5,7)=='12') mes='December';
+    return mes + ' ' + myDate.substring(0,4)
+  }else{
+    return 'Now'
+  }
+}
+
+downloadResumeBTN.addEventListener('click',()=>{
+  downloadResume()
+})
