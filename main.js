@@ -100,8 +100,19 @@ iThree.tabIndex='0';
 iThree.ariaLabel='here is my skills';
 iThree.className='bi bi-lightning-charge-fill tam';
 
+
+const contForm = form()
+contForm.id='myForm'
+contForm.className='card-capcha'
+
+const theCapcha = div()
+theCapcha.className="g-recaptcha"
+theCapcha.setAttribute('data-sitekey', '6Lcsl9spAAAAAE9YCrIgsrPJ8-ZSDxPIc3H-8GTt')
+
 const downloadResumeBTN = button()
 downloadResumeBTN.textContent='Download resume'
+
+const responseT = div()
 
 const portfolioTitle = h3();
 portfolioTitle.textContent='Projects'
@@ -133,7 +144,10 @@ aC(capOne,iOne);
 aC(capTwo,iTwo);
 aC(capThree,iThree);
 
-aC(lienzo,downloadResumeBTN)
+aC(lienzo,contForm)
+aC(contForm,theCapcha)
+aC(contForm,downloadResumeBTN)
+aC(contForm,responseT)
 
 
 aC(lienzo,hr());
@@ -434,5 +448,27 @@ const parseDate=(myDate)=>{
 }
 
 downloadResumeBTN.addEventListener('click',()=>{
-  downloadResume()
+  
 })
+
+
+contForm.addEventListener('submit', async (event) => {
+  event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+  var response = grecaptcha.getResponse();
+  
+  if(response.length == 0) {
+    let tiempoAleatorio = Math.floor(Math.random() * 5000) + 1000
+    responseT.innerHTML = `Press the 'I'm not a robot' checkbox. <br>
+    <img src="https://robohash.org/${tiempoAleatorio}" alt="robot" class="mini-robot">
+    `
+    setTimeout(()=>{responseT.textContent=""},3000)
+  } else {
+    try {
+      downloadResume()
+      responseT.textContent=""
+      } catch (error) {
+        responseT.textContent = `Error ${error}`
+      }
+  }
+});
